@@ -4,6 +4,8 @@ const mongoose= require('mongoose');
 const morgan=require('morgan');
 const bodyParser=require('body-parser');
 
+const registerRoutes=require('./routes/register.route');
+
 var app = express();
 app.use(cors());
 app.use(express.json());
@@ -11,6 +13,8 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
+
+app.use('/register', registerRoutes);
 
 require('dotenv/config');
 const db=process.env.DATABASE;
