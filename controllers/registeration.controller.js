@@ -48,7 +48,7 @@ exports.registerUser = (req,res, next) => {
                     });
 
                     let info = await transporter.sendMail({
-                        from: "Donita Pizza Palace <mansibhondave90@gmail.com>",
+                        from: "Donita Pizza Palace <donitapizzapalace@gmail.com>",
                         to: req.body.email,
                         subject: "Welcome to Donita Pizza Palace",
                         html: `<p>"Successfully registered" </p>`

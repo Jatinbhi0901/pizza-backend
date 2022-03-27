@@ -5,6 +5,7 @@ const morgan=require('morgan');
 const bodyParser=require('body-parser');
 
 const registerRoutes=require('./routes/register.route');
+const loginRoutes=require('./routes/login.route');
 
 var app = express();
 app.use(cors());
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 app.use('/register', registerRoutes);
+app.use('/login',loginRoutes);
 
 require('dotenv/config');
 const db=process.env.DATABASE;
