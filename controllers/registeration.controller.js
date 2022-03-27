@@ -1,5 +1,6 @@
 const express = require('express');
 const register = require('../models/registeration');
+const profile = require('../models/profile');
 const bcrypt = require("bcrypt");
 const validator = require('validator');
 const nodemailer = require('nodemailer');
@@ -63,6 +64,19 @@ exports.registerUser = (req,res, next) => {
                             message: 'Error while sending email'
                         })
                     }
+                    const newProfile= new profile({
+                        firstName: req.body.firstName,
+                        lastName: req.body.lastName,
+                        email: req.body.email,
+                        phnNo: req.body.phnNo,
+                        dateOfBirth: req.body.dateOfBirth,
+                        gender: req.body.gender,
+                        country: req.body.country,
+                        state: req.body.state,
+                        address: req.body.address,
+                    });
+                    newProfile
+                    .save()
                 })
                 .catch((err) => {
                     res.status(404).json({
