@@ -64,20 +64,20 @@ exports.registerUser = (req,res, next) => {
                             message: 'Error while sending email'
                         })
                     }
-                    const newProfile= new profile({
-                        firstName: req.body.firstName,
-                        lastName: req.body.lastName,
-                        email: req.body.email,
-                        phnNo: req.body.phnNo,
-                        dateOfBirth: req.body.dateOfBirth,
-                        gender: req.body.gender,
-                        country: req.body.country,
-                        state: req.body.state,
-                        address: req.body.address,
-                    });
-                    newProfile
-                    .save()
-                })
+                //     const newProfile= new profile({
+                //         firstName: req.body.firstName,
+                //         lastName: req.body.lastName,
+                //         email: req.body.email,
+                //         phnNo: req.body.phnNo,
+                //         dateOfBirth: req.body.dateOfBirth,
+                //         gender: req.body.gender,
+                //         country: req.body.country,
+                //         state: req.body.state,
+                //         address: req.body.address,
+                //     });
+                //     newProfile
+                //     .save()
+                 })
                 .catch((err) => {
                     res.status(404).json({
                         message: err
