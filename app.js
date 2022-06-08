@@ -2,11 +2,14 @@ const express = require('express');
 const cors= require('cors');
 const mongoose= require('mongoose');
 const morgan=require('morgan');
+const path=require('path');
 const bodyParser=require('body-parser');
 
 const registerRoutes=require('./routes/register.route');
 const loginRoutes=require('./routes/login.route');
 const profileRoutes=require('./routes/profile.route');
+const cartRoutes=require('./routes/cart.route');
+
 
 var app = express();
 app.use(cors());
@@ -19,6 +22,9 @@ app.use(bodyParser.json());
 app.use('/register', registerRoutes);
 app.use('/login',loginRoutes);
 app.use('/profile',profileRoutes);
+app.use('/cart',cartRoutes);
+
+app.use('/uploads',express.static('uploads'));
 
 require('dotenv/config');
 const db=process.env.DATABASE;
