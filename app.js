@@ -9,6 +9,7 @@ const registerRoutes=require('./routes/register.route');
 const loginRoutes=require('./routes/login.route');
 const profileRoutes=require('./routes/profile.route');
 const cartRoutes=require('./routes/cart.route');
+const productRoutes=require('./routes/product.route');
 
 
 var app = express();
@@ -23,6 +24,7 @@ app.use('/register', registerRoutes);
 app.use('/login',loginRoutes);
 app.use('/profile',profileRoutes);
 app.use('/cart',cartRoutes);
+app.use('/product',productRoutes);
 
 app.use('/uploads',express.static('uploads'));
 
