@@ -3,10 +3,12 @@ const cors= require('cors');
 const mongoose= require('mongoose');
 const morgan=require('morgan');
 const bodyParser=require('body-parser');
+const path=require('path');
 
 const registerRoutes=require('./routes/register.route');
 const loginRoutes=require('./routes/login.route');
 const profileRoutes=require('./routes/profile.route');
+const pizzaRoutes=require('./routes/pizza.route');
 
 var app = express();
 app.use(cors());
@@ -15,10 +17,12 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
+app.use('/uploads',express.static('uploads'));
 
 app.use('/register', registerRoutes);
 app.use('/login',loginRoutes);
 app.use('/profile',profileRoutes);
+app.use('/pizzaData',pizzaRoutes);
 
 require('dotenv/config');
 const db=process.env.DATABASE;
