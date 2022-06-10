@@ -31,7 +31,7 @@ exports.addPizza= (req,res) => {
                 }
             }
         });
-        console.log(newPizza);
+        
         newPizza
         .save()
         .then(result => {

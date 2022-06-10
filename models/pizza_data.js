@@ -74,12 +74,14 @@ const pizzaSchema = new mongoose.Schema({
                 },
                 cheeseBurst: {
                     largeCheeseBurstPrice: {
-                        type: Number
+                        type: Number,
+                        required: true
                     }
                 },
                 freshPan: {
                     largeFreshPanPrice: {
-                        type: Number
+                        type: Number,
+                        required: true
                     }
                 }
             }

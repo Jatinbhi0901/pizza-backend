@@ -9,6 +9,7 @@ const registerRoutes=require('./routes/register.route');
 const loginRoutes=require('./routes/login.route');
 const profileRoutes=require('./routes/profile.route');
 const pizzaRoutes=require('./routes/pizza.route');
+const beverageRoutes=require('./routes/beverage.route');
 
 var app = express();
 app.use(cors());
@@ -23,6 +24,7 @@ app.use('/register', registerRoutes);
 app.use('/login',loginRoutes);
 app.use('/profile',profileRoutes);
 app.use('/pizzaData',pizzaRoutes);
+app.use('/beverageData',beverageRoutes);
 
 require('dotenv/config');
 const db=process.env.DATABASE;
