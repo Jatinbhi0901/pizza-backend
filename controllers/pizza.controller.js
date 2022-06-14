@@ -51,3 +51,20 @@ exports.addPizza= (req,res) => {
         })
     }
 }
+
+// to get details
+
+exports.getpizza = (req,res,next) => {
+    pizza.find({type: req.body.type})
+    .exec()
+    .then(pizzaDetail => {
+        if(pizzaDetail<1){
+            return res.status(400).json({
+                message: "no data found"
+            })
+        }
+        res.status(200).json({
+            pizza: pizzaDetail
+        })
+    })
+}
