@@ -55,7 +55,7 @@ exports.addPizza= (req,res) => {
 // to get details
 
 exports.getpizza = (req,res,next) => {
-    pizza.find({type: req.body.type})
+    pizza.find({type: req.params.type})
     .exec()
     .then(pizzaDetail => {
         if(pizzaDetail<1){
@@ -65,6 +65,11 @@ exports.getpizza = (req,res,next) => {
         }
         res.status(200).json({
             pizza: pizzaDetail
+        })
+    })
+    .catch((err) => {
+        res.status(400).json({
+            error: err
         })
     })
 }

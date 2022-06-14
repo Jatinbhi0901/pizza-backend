@@ -30,4 +30,6 @@ const upload= multer({
 
 router.post('/addBeverage', upload.single('image'), beverageController.otherThanPizza);
 
+router.get('/getBeverage/:type', beverageController.getBeverages);
+
 module.exports= router;

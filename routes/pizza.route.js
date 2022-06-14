@@ -27,6 +27,6 @@ const upload = multer({
 
 router.post('/addPizza', upload.single('image'), pizzaController.addPizza);
 
-router.get('/getPizza', pizzaController.getpizza);
+router.get('/getPizza/:type', pizzaController.getpizza);
 
 module.exports= router;
